@@ -40,19 +40,22 @@
       </div>
 
       <div class="slider-container">
-        <label id="voltage-min-label" for="voltage-slider">0 V</label> <!-- Nilai Min -->
-        <input
-          type="range"
-          id="voltage-slider"
-          min="0"
-          max="1000"
-          step="1"
-          value="0"
-          oninput="updateVoltageInput()"
-          class="slider"
-        />
-        <label id="voltage-max-label" for="voltage-slider">1000 V</label> <!-- Nilai Max -->
+        <div class="slider-item">
+          <label id="voltage-min-label" for="voltage-slider">0 V</label>
+          <input
+            type="range"
+            id="voltage-slider"
+            min="0"
+            max="1000"
+            step="1"
+            value="0"
+            oninput="updateVoltageInput()"
+            class="slider"
+          />
+          <label id="voltage-max-label" for="voltage-slider">1000 V</label>
+        </div>
       </div>
+      
 
       <!-- Input dan Slider untuk Hambatan -->
       <div class="input-container">
@@ -66,24 +69,26 @@
           required
           placeholder="Masukkan hambatan"
           oninput="updateResistanceSlider()"
-          onblur="checkEmptyInput('resistance', 'resistance-slider', 1)" <!-- Reset slider saat input kosong -->
+          onblur="checkEmptyInput('resistance', 'resistance-slider', 1)" 
         />
         <label for="resistance_satuan"> Ω </label>
       </div>
 
       <div class="slider-container">
-        <label id="resistance-min-label" for="resistance-slider">1 Ω</label> <!-- Nilai Min -->
-        <input
-          type="range"
-          id="resistance-slider"
-          min="1"
-          max="1000"
-          step="1"
-          value="1"
-          oninput="updateResistanceInput()"
-          class="slider"
-        />
-        <label id="resistance-max-label" for="resistance-slider">1000 Ω</label> <!-- Nilai Max -->
+        <div class="slider-item">
+          <label id="resistance-min-label" for="resistance-slider">1 Ω</label>
+          <input
+            type="range"
+            id="resistance-slider"
+            min="1"
+            max="1000"
+            step="1"
+            value="1"
+            oninput="updateResistanceInput()"
+            class="slider"
+          />
+          <label id="resistance-max-label" for="resistance-slider">1000 Ω</label>
+        </div>
       </div>
       
       <button onclick="calculateCurrent()">Hitung Arus</button>

@@ -131,14 +131,18 @@ body, html {
  .slider-container {
     display: flex; /* Menggunakan flexbox untuk menyusun elemen secara horizontal */
     align-items: center; /* Memastikan elemen sejajar secara vertikal */
-    justify-content: space-between; /* Memberi jarak antar elemen */
-    width: 100%; /* Mengatur lebar container */
     margin: 20px 0; /* Jarak vertikal antar slider */
   }
   
+  .slider-item {
+    display: flex; /* Menggunakan flexbox untuk item slider */
+    align-items: center; /* Memastikan label dan slider sejajar secara vertikal */
+    flex: 1; /* Mengatur item slider agar mengisi ruang yang tersedia */
+  }
+  
   .slider {
-    flex-grow: 1; /* Agar slider membesar untuk mengisi ruang yang tersedia */
-    margin: 0 10px; /* Jarak antara slider dan label min-max */
+    flex: 1; /* Slider akan mengisi ruang yang tersedia */
+    margin: 0 10px; /* Jarak antara slider dan label min/max */
   }
   
   label {
