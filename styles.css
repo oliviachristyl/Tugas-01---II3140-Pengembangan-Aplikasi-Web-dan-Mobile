@@ -154,12 +154,10 @@ body, html {
   }
   
   #graphs {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 20px auto;
   }
   
   canvas {
