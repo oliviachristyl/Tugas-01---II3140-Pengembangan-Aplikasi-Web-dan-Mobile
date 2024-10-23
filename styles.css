@@ -127,10 +127,25 @@ body, html {
     display: none;
   }
 
-  .slider {
+ /* Styling untuk slider container */
+ .slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    margin: 10px 0;
+    margin: 20px 0;
   }
+  
+  .slider {
+    flex-grow: 2; /* Slider memanjang sesuai container */
+    margin: 0 10px; /* Jarak antara slider dan label min-max */
+  }
+  
+  label {
+    width: 50px;
+    text-align: center;
+  }
+  
   
   input[type="range"]::-webkit-slider-thumb {
     background-color: #003366; /* Biru tua */
