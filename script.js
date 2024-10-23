@@ -10,19 +10,19 @@ function openOhmLab() {
   function calculateCurrent() {
     const voltage = parseFloat(document.getElementById("voltage").value);
     const resistance = parseFloat(document.getElementById("resistance").value);
-  
+
     if (isNaN(voltage) || isNaN(resistance) || resistance <= 0 || voltage <= 0) {
-      alert("Masukkan nilai yang valid untuk voltase dan hambatan.");
-      return;
+        alert("Masukkan nilai yang valid untuk voltase dan hambatan.");
+        return;
     }
-  
+
     // Hitung arus (I = V / R)
     const current = (voltage / resistance) * 1000; // dalam mA
     document.getElementById("current").textContent = current.toFixed(2);
-  
+
     // Update grafik setelah arus dihitung
     updateCharts(voltage, resistance, current);
-  }
+}
   
   function updateCharts(voltage, resistance, current) {
     // Update grafik antara Arus dan Hambatan
@@ -51,34 +51,34 @@ function openOhmLab() {
 
   // Fungsi untuk memperbarui input voltase saat slider diubah
 // Fungsi untuk memperbarui input voltase saat slider diubah
+// Fungsi update nilai pada input saat slider voltase digeser
 function updateVoltageInput() {
-    const sliderValue = document.getElementById("voltage-slider").value;
-    document.getElementById("voltage").value = sliderValue;
-    calculateCurrent();
-  }
-  
-  // Fungsi untuk memperbarui slider voltase saat input manual diubah
-  function updateVoltageSlider() {
-    const inputValue = document.getElementById("voltage").value;
-    if (inputValue >= 0 && inputValue <= 1000) {
-      document.getElementById("voltage-slider").value = inputValue;
-      calculateCurrent();
-    }
-  }
-  
-  // Fungsi untuk memperbarui input hambatan saat slider diubah
-  function updateResistanceInput() {
-    const sliderValue = document.getElementById("resistance-slider").value;
-    document.getElementById("resistance").value = sliderValue;
-    calculateCurrent();
-  }
-  
-  // Fungsi untuk memperbarui slider hambatan saat input manual diubah
-  function updateResistanceSlider() {
-    const inputValue = document.getElementById("resistance").value;
-    if (inputValue >= 1 && inputValue <= 1000) {
-      document.getElementById("resistance-slider").value = inputValue;
-      calculateCurrent();
-    }
-  }
-  
+    const voltageSlider = document.getElementById("voltage-slider");
+    const voltageInput = document.getElementById("voltage");
+
+    voltageInput.value = voltageSlider.value;
+}
+
+// Fungsi update nilai pada input saat slider hambatan digeser
+function updateResistanceInput() {
+    const resistanceSlider = document.getElementById("resistance-slider");
+    const resistanceInput = document.getElementById("resistance");
+
+    resistanceInput.value = resistanceSlider.value;
+}
+
+// Fungsi update slider saat input voltase diubah
+function updateVoltageSlider() {
+    const voltageInput = document.getElementById("voltage");
+    const voltageSlider = document.getElementById("voltage-slider");
+
+    voltageSlider.value = voltageInput.value;
+}
+
+// Fungsi update slider saat input hambatan diubah
+function updateResistanceSlider() {
+    const resistanceInput = document.getElementById("resistance");
+    const resistanceSlider = document.getElementById("resistance-slider");
+
+    resistanceSlider.value = resistanceInput.value;
+}

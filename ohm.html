@@ -40,19 +40,19 @@
       
       <!-- Bar geser untuk voltase dengan nilai min dan maks -->
       <div class="slider-container">
-        <label for="voltage-slider">0</label>
+        <label id="voltage-min-label" for="voltage-slider">0</label> <!-- Nilai Min -->
         <input
-          type="range"
-          id="voltage-slider"
-          min="0"
-          max="1000"
-          step="1"
-          value="0"
-          oninput="updateVoltageInput()"
-          class="slider"
+            type="range"
+            id="voltage-slider"
+            min="0"
+            max="1000"
+            step="1"
+            value="0"
+            oninput="updateVoltageInput()"
+            class="slider"
         />
-        <label for="voltage-slider">1000</label>
-      </div>
+        <label id="voltage-max-label" for="voltage-slider">1000</label> <!-- Nilai Max -->
+    </div>
       
       <div class="input-container">
         <label for="resistance">Hambatan (R): </label>
@@ -71,19 +71,19 @@
       
       <!-- Bar geser untuk hambatan dengan nilai min dan maks -->
       <div class="slider-container">
-        <label for="resistance-slider">1</label>
+        <label id="resistance-min-label" for="resistance-slider">1</label> <!-- Nilai Min -->
         <input
-          type="range"
-          id="resistance-slider"
-          min="1"
-          max="1000"
-          step="1"
-          value="1"
-          oninput="updateResistanceInput()"
-          class="slider"
+            type="range"
+            id="resistance-slider"
+            min="1"
+            max="1000"
+            step="1"
+            value="1"
+            oninput="updateResistanceInput()"
+            class="slider"
         />
-        <label for="resistance-slider">1000</label>
-      </div>
+        <label id="resistance-max-label" for="resistance-slider">1000</label> <!-- Nilai Max -->
+    </div>
       
       
       <button onclick="calculateCurrent()">Hitung Arus</button>
