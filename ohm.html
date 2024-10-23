@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Percobaan Hukum Ohm - Laboratorium Virtual Fisika Dasar TPB ITB
+    </title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header onclick="window.location.href='index.html'">
+      <h1>Laboratorium Virtual Fisika Dasar TPB ITB</h1>
+    </header>
+
+    <section id="ohm-lab" class="lab-section">
+      <h2>Percobaan Hukum Ohm</h2>
+      <p>
+        Hukum Ohm menyatakan bahwa arus listrik yang mengalir melalui penghantar
+        antara dua titik sebanding dengan voltase di antara kedua titik
+        tersebut. Secara matematis, dinyatakan sebagai V = I x R, di mana V
+        adalah voltase, I adalah arus, dan R adalah hambatan.
+      </p>
+      <p>Masukkan nilai voltase dan hambatan untuk menghitung arus listrik.</p>
+      <div class="input-container">
+        <label for="voltage">Voltase (V): </label>
+        <input
+          type="number"
+          id="voltage"
+          min="0"
+          step="0.1"
+          required
+          placeholder="Masukkan voltase"
+        />
+        <label for="voltage_satuan"> V </label>
+      </div>
+      <div class="input-container">
+        <label for="resistance">Hambatan (R): </label>
+        <input
+          type="number"
+          id="resistance"
+          min="1"
+          step="0.1"
+          required
+          placeholder="Masukkan hambatan"
+        />
+        <label for="resistance_satuan"> Ω </label>
+      </div>
+      <button onclick="calculateCurrent()">Hitung Arus</button>
+      <div id="result">
+        <p>Arus Listrik (I): <span id="current">0</span> mA</p>
+      </div>
+      <div id="graphs">
+        <h3>Grafik Hukum Ohm</h3>
+        <canvas id="currentResistanceGraph" width="400" height="400"></canvas>
+        <canvas id="voltCurrentGraph" width="400" height="400"></canvas>
+        <canvas id="voltResistanceGraph" width="400" height="400"></canvas>
+      </div>
+      <script>
+        let charts = {}; // Menyimpan grafik untuk memperbarui nanti
+
+        function initializeEmptyCharts() {
+          charts.currentResistance = new Chart(
+            document.getElementById("currentResistanceGraph"),
+            {
+              type: "line",
+              data: {
+                labels: [], // Data awal kosong
+                datasets: [
+                  {
+                    label: "Arus (mA)",
+                    data: [], // Data awal kosong
+                    borderColor: "black",
+                    backgroundColor: "white",
+                    fill: false,
+                    borderWidth: 2,
+                  },
+                ],
+              },
+              options: {
+                scales: {
+                  x: {
+                    title: { display: true, text: "Hambatan (Ω)" },
+                    min: 10,
+                    max: 1000,
+                  },
+                  y: {
+                    title: { display: true, text: "Arus (mA)" },
+                    min: 0,
+                    max: 10000,
+                  },
+                },
+              },
+            }
+          );
+
+          charts.voltCurrent = new Chart(
+            document.getElementById("voltCurrentGraph"),
+            {
+              type: "line",
+              data: {
+                labels: [],
+                datasets: [
+                  {
+                    label: "Arus (mA)",
+                    data: [],
+                    borderColor: "black",
+                    backgroundColor: "white",
+                    fill: false,
+                    borderWidth: 2,
+                  },
+                ],
+              },
+              options: {
+                scales: {
+                  x: {
+                    title: { display: true, text: "Voltase (V)" },
+                    min: 0,
+                    max: 100,
+                  },
+                  y: {
+                    title: { display: true, text: "Arus (mA)" },
+                    min: 0,
+                    max: 10000,
+                  },
+                },
+              },
+            }
+          );
+
+          charts.voltResistance = new Chart(
+            document.getElementById("voltResistanceGraph"),
+            {
+              type: "line",
+              data: {
+                labels: [],
+                datasets: [
+                  {
+                    label: "Hambatan (Ω)",
+                    data: [],
+                    borderColor: "black",
+                    backgroundColor: "white",
+                    fill: false,
+                    borderWidth: 2,
+                  },
+                ],
+              },
+              options: {
+                scales: {
+                  x: {
+                    title: { display: true, text: "Voltase (V)" },
+                    min: 0,
+                    max: 100,
+                  },
+                  y: {
+                    title: { display: true, text: "Hambatan (Ω)" },
+                    min: 10,
+                    max: 1000,
+                  },
+                },
+              },
+            }
+          );
+        }
+
+        // Memanggil fungsi untuk inisialisasi grafik kosong
+        initializeEmptyCharts();
+      </script>
+      <div id="circuit-visualization">
+        <img src="hukum_ohm.png" alt="Sirkuit" id="circuit-image" />
+      </div>
+      <div class="video-container">
+        <h3>Video Pembelajaran</h3>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/O1R9MgFnocQ?si=LmMxoWeSXQsPRxX9"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+    <footer>
+      © 2024 Laboratorium Virtual Fisika Dasar TPB ITB. All Rights Reserved.
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
