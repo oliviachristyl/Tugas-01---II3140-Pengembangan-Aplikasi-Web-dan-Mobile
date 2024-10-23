@@ -17,7 +17,7 @@ function openOhmLab() {
     }
 
     // Hitung arus (I = V / R)
-    const current = (voltage / resistance); // dalam mA
+    const current = (voltage / resistance) * 1000; // dalam mA
     document.getElementById("current").textContent = current.toFixed(2);
 
     // Update grafik setelah arus dihitung
@@ -29,7 +29,7 @@ function openOhmLab() {
     const resistanceRange = Array.from({ length: 10 }, (_, i) => 10 + i * 100); // Rentang hambatan dimulai dari 10Ω, bertambah 10
     charts.currentResistance.data.labels = resistanceRange;
     charts.currentResistance.data.datasets[0].data = resistanceRange.map(
-      (r) => (voltage / r) // Menghitung arus untuk tiap hambatan
+      (r) => (voltage / r) * 1000 // Menghitung arus untuk tiap hambatan
     );
     charts.currentResistance.update();
   
@@ -37,7 +37,7 @@ function openOhmLab() {
     const voltageRange = Array.from({ length: 10 }, (_, i) => 0 + i * 100); // Menambahkan variasi voltase
     charts.voltCurrent.data.labels = voltageRange;
     charts.voltCurrent.data.datasets[0].data = voltageRange.map(
-      (v) => (v / resistance) // Menghitung arus berdasarkan voltase dan hambatan tetap
+      (v) => (v / resistance) * 1000 // Menghitung arus berdasarkan voltase dan hambatan tetap
     );
     charts.voltCurrent.update();
   
