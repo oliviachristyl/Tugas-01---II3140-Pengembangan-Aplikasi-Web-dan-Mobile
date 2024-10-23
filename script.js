@@ -50,6 +50,7 @@ function openOhmLab() {
   }
 
   // Fungsi untuk memperbarui input voltase saat slider diubah
+// Fungsi untuk memperbarui input voltase saat slider diubah
 function updateVoltageInput() {
     const sliderValue = document.getElementById("voltage-slider").value;
     document.getElementById("voltage").value = sliderValue;
@@ -59,7 +60,10 @@ function updateVoltageInput() {
   // Fungsi untuk memperbarui slider voltase saat input manual diubah
   function updateVoltageSlider() {
     const inputValue = document.getElementById("voltage").value;
-    document.getElementById("voltage-slider").value = inputValue;
+    if (inputValue >= 0 && inputValue <= 1000) {
+      document.getElementById("voltage-slider").value = inputValue;
+      calculateCurrent();
+    }
   }
   
   // Fungsi untuk memperbarui input hambatan saat slider diubah
@@ -72,7 +76,9 @@ function updateVoltageInput() {
   // Fungsi untuk memperbarui slider hambatan saat input manual diubah
   function updateResistanceSlider() {
     const inputValue = document.getElementById("resistance").value;
-    document.getElementById("resistance-slider").value = inputValue;
+    if (inputValue >= 1 && inputValue <= 1000) {
+      document.getElementById("resistance-slider").value = inputValue;
+      calculateCurrent();
+    }
   }
-  
   

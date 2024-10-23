@@ -38,8 +38,21 @@
         <label for="voltage_satuan"> V </label>
       </div>
       
-      <!-- Bar geser untuk voltase -->
-      <input type="range" id="voltage-slider" min="0" max="1000" step="1" value="0" oninput="updateVoltageInput()" class="slider"/>
+      <!-- Bar geser untuk voltase dengan nilai min dan maks -->
+      <div class="slider-container">
+        <label for="voltage-slider">0</label>
+        <input
+          type="range"
+          id="voltage-slider"
+          min="0"
+          max="1000"
+          step="1"
+          value="0"
+          oninput="updateVoltageInput()"
+          class="slider"
+        />
+        <label for="voltage-slider">1000</label>
+      </div>
       
       <div class="input-container">
         <label for="resistance">Hambatan (R): </label>
@@ -56,8 +69,22 @@
         <label for="resistance_satuan"> Ω </label>
       </div>
       
-      <!-- Bar geser untuk hambatan -->
-      <input type="range" id="resistance-slider" min="1" max="1000" step="1" value="1" oninput="updateResistanceInput()" class="slider"/>
+      <!-- Bar geser untuk hambatan dengan nilai min dan maks -->
+      <div class="slider-container">
+        <label for="resistance-slider">1</label>
+        <input
+          type="range"
+          id="resistance-slider"
+          min="1"
+          max="1000"
+          step="1"
+          value="1"
+          oninput="updateResistanceInput()"
+          class="slider"
+        />
+        <label for="resistance-slider">1000</label>
+      </div>
+      
       
       <button onclick="calculateCurrent()">Hitung Arus</button>
       <div id="result">
