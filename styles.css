@@ -163,6 +163,32 @@ body, html {
       grid-template-columns: 1fr;
     }
   }
+
+  /* Untuk menata canvas di dalam div #graphs */
+.graphs-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px; /* Memberikan jarak antar diagram */
+    margin-top: 20px;
+  }
+  
+  .graphs-container canvas {
+    width: 30%; /* Membatasi lebar setiap diagram agar muat dalam satu baris */
+    height: auto; /* Menjaga proporsi tinggi-kanvas */
+  }
+  
+  /* Pastikan layout tetap responsif di layar yang lebih kecil */
+  @media (max-width: 768px) {
+    .graphs-container {
+      flex-direction: column; /* Di layar kecil, diagram akan berada di bawah satu sama lain */
+    }
+  
+    .graphs-container canvas {
+      width: 100%; /* Lebar penuh pada layar kecil */
+    }
+  }
+  
   
   /* Pastikan lab-section tidak disembunyikan di layar besar */
   @media (min-width: 769px) {
