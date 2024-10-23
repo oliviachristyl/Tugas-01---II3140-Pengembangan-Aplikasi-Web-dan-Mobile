@@ -4,48 +4,48 @@ body, html {
     padding: 0;
     display: flex;
     flex-direction: column;
-}
-
-.topic-section, .lab-section {
+  }
+  
+  .topic-section, .lab-section {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
-}
-
-footer {
+  }
+  
+  footer {
     background-color: #001f3f;
     color: white;
     text-align: center;
     padding: 10px 0;
     width: 100%;
     margin-top: auto; 
-}
-
-header {
+  }
+  
+  header {
     background-color: #87cefa;
     padding: 20px;
     text-align: center;
     color: white;
-}
-
-h1 {
+  }
+  
+  h1 {
     font-size: 2em;
-}
-
-h2 {
-    font-size: 1.5em;
-    color: #333;
-}
-
-.topic-section {
+  }
+  
+  .topic-section {
     text-align: center;
     padding: 20px;
-}
-
-.topics {
+  }
+  
+  h2 {
+    font-size: 1.5em;
+    color: #333;
+  }
+  
+  .topics {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
@@ -53,65 +53,121 @@ h2 {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-}
-
-.input-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 10px 0;
-}
-
-input {
-    margin-left: 10px;
-}
-
-button {
-    margin-top: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .topics {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .topics {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .topic {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .topic:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .topic.locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .lock-icon {
+    display: block;
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .lab-section {
+    display: flex; /* Pastikan lab-section tetap terlihat */
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .input-container {
+    margin: 10px;
+  }
+  
+  button {
     padding: 10px 20px;
     background-color: #87cefa;
     border: none;
     color: white;
     cursor: pointer;
-    font-size: 1em;
-}
-
-button:hover {
-    background-color: #00aaff;
-}
-
-#graphs {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    max-width: 1200px;
-}
-
-canvas {
-    width: 100%;
-    height: 100%;
-    max-width: 400px;
-    max-height: 400px;
-}
-
-.video-container {
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #4682b4;
+  }
+  
+  #result {
     margin-top: 20px;
-}
-
-.video-container iframe {
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #circuit-visualization {
     max-width: 100%;
     height: auto;
-}
-
-#circuit-visualization {
     margin-top: 20px;
-}
-
-@media (max-width: 768px) {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .video-container {
+    margin-top: 20px;
+  }
+  
+  canvas {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+  }
+  
+  #graphs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  @media (max-width: 768px) {
     #graphs {
-        flex-direction: column;
-        align-items: center;
+      grid-template-columns: 1fr;
     }
-}
+  }
+  
+  /* Pastikan lab-section tidak disembunyikan di layar besar */
+  @media (min-width: 769px) {
+    .lab-section {
+      display: flex; /* Tetap flex untuk desktop */
+    }
+  }
+  
