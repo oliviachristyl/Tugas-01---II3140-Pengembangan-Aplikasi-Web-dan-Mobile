@@ -10,47 +10,75 @@ function openOhmLab() {
   function calculateCurrent() {
     const voltage = parseFloat(document.getElementById("voltage").value);
     const resistance = parseFloat(document.getElementById("resistance").value);
-  
+
     if (isNaN(voltage) || isNaN(resistance) || resistance <= 0 || voltage <= 0) {
-      alert("Masukkan nilai yang valid untuk voltase dan hambatan.");
-      return;
+        alert("Masukkan nilai yang valid untuk voltase dan hambatan.");
+        return;
     }
-  
+
     // Hitung arus (I = V / R)
     const current = (voltage / resistance) * 1000; // dalam mA
     document.getElementById("current").textContent = current.toFixed(2);
-  }
+
+    // Update grafik setelah arus dihitung
+    updateCharts(voltage, resistance, current);
+}
   
-  // Fungsi untuk memperbarui input berdasarkan slider
-  function updateVoltageInput() {
+  function updateCharts(voltage, resistance, current) {
+    // Update grafik antara Arus dan Hambatan
+    const resistanceRange = Array.from({ length: 10 }, (_, i) => 10 + i * 100); // Rentang hambatan dimulai dari 10Ω, bertambah 10
+    charts.currentResistance.data.labels = resistanceRange;
+    charts.currentResistance.data.datasets[0].data = resistanceRange.map(
+      (r) => (voltage / r) * 1000 // Menghitung arus untuk tiap hambatan
+    );
+    charts.currentResistance.update();
+  
+    // Update grafik antara Voltase dan Arus
+    const voltageRange = Array.from({ length: 10 }, (_, i) => 0 + i * 1000); // Menambahkan variasi voltase
+    charts.voltCurrent.data.labels = voltageRange;
+    charts.voltCurrent.data.datasets[0].data = voltageRange.map(
+      (v) => (v / resistance) * 1000 // Menghitung arus berdasarkan voltase dan hambatan tetap
+    );
+    charts.voltCurrent.update();
+  
+    // Update grafik antara Voltase dan Hambatan
+    charts.voltResistance.data.labels = voltageRange;
+    charts.voltResistance.data.datasets[0].data = voltageRange.map(
+      () => resistance // Hambatan tetap pada setiap titik voltase
+    );
+    charts.voltResistance.update();
+  }
+
+  // Fungsi untuk memperbarui input voltase saat slider diubah
+// Fungsi untuk memperbarui input voltase saat slider diubah
+// Fungsi update nilai pada input saat slider voltase digeser
+function updateVoltageInput() {
     const voltageSlider = document.getElementById("voltage-slider");
-    document.getElementById("voltage").value = voltageSlider.value;
-  }
-  
-  function updateResistanceInput() {
+    const voltageInput = document.getElementById("voltage");
+
+    voltageInput.value = voltageSlider.value;
+}
+
+// Fungsi update nilai pada input saat slider hambatan digeser
+function updateResistanceInput() {
     const resistanceSlider = document.getElementById("resistance-slider");
-    document.getElementById("resistance").value = resistanceSlider.value;
-  }
-  
-  // Fungsi untuk memperbarui slider berdasarkan input
-  function updateVoltageSlider() {
+    const resistanceInput = document.getElementById("resistance");
+
+    resistanceInput.value = resistanceSlider.value;
+}
+
+// Fungsi update slider saat input voltase diubah
+function updateVoltageSlider() {
     const voltageInput = document.getElementById("voltage");
     const voltageSlider = document.getElementById("voltage-slider");
+
     voltageSlider.value = voltageInput.value;
-  }
-  
-  function updateResistanceSlider() {
+}
+
+// Fungsi update slider saat input hambatan diubah
+function updateResistanceSlider() {
     const resistanceInput = document.getElementById("resistance");
     const resistanceSlider = document.getElementById("resistance-slider");
+
     resistanceSlider.value = resistanceInput.value;
-  }
-  
-  // Fungsi untuk reset slider jika input kosong
-  function checkEmptyInput(inputId, sliderId, defaultValue) {
-    const inputElement = document.getElementById(inputId);
-    const sliderElement = document.getElementById(sliderId);
-    if (inputElement.value === "") {
-      inputElement.value = defaultValue;
-      sliderElement.value = defaultValue;
-    }
-  }
+}
