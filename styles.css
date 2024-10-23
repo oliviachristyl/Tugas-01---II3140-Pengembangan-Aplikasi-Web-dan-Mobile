@@ -126,6 +126,28 @@ body, html {
   .hidden {
     display: none;
   }
+
+  .slider {
+    width: 100%;
+    margin: 10px 0;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    background-color: #003366; /* Biru tua */
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  input[type="range"]::-moz-range-thumb {
+    background-color: #003366; /* Biru tua */
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
   
   #circuit-visualization {
     display: flex;

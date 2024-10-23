@@ -48,4 +48,31 @@ function openOhmLab() {
     );
     charts.voltResistance.update();
   }
+
+  // Fungsi untuk memperbarui input voltase saat slider diubah
+function updateVoltageInput() {
+    const sliderValue = document.getElementById("voltage-slider").value;
+    document.getElementById("voltage").value = sliderValue;
+    calculateCurrent();
+  }
+  
+  // Fungsi untuk memperbarui slider voltase saat input manual diubah
+  function updateVoltageSlider() {
+    const inputValue = document.getElementById("voltage").value;
+    document.getElementById("voltage-slider").value = inputValue;
+  }
+  
+  // Fungsi untuk memperbarui input hambatan saat slider diubah
+  function updateResistanceInput() {
+    const sliderValue = document.getElementById("resistance-slider").value;
+    document.getElementById("resistance").value = sliderValue;
+    calculateCurrent();
+  }
+  
+  // Fungsi untuk memperbarui slider hambatan saat input manual diubah
+  function updateResistanceSlider() {
+    const inputValue = document.getElementById("resistance").value;
+    document.getElementById("resistance-slider").value = inputValue;
+  }
+  
   
