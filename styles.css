@@ -127,10 +127,25 @@ body, html {
     display: none;
   }
 
-  .slider {
-    width: 100%;
-    margin: 10px 0;
+ /* Styling untuk slider container */
+ .slider-container {
+    display: flex; /* Menggunakan flexbox untuk menyusun elemen secara horizontal */
+    align-items: center; /* Memastikan elemen sejajar secara vertikal */
+    justify-content: space-between; /* Memberi jarak antar elemen */
+    width: 100%; /* Mengatur lebar container */
+    margin: 20px 0; /* Jarak vertikal antar slider */
   }
+  
+  .slider {
+    flex-grow: 1; /* Agar slider membesar untuk mengisi ruang yang tersedia */
+    margin: 0 10px; /* Jarak antara slider dan label min-max */
+  }
+  
+  label {
+    width: 50px; /* Lebar label */
+    text-align: center; /* Mengatur teks rata tengah */
+  }
+  
   
   input[type="range"]::-webkit-slider-thumb {
     background-color: #003366; /* Biru tua */
