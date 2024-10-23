@@ -34,7 +34,7 @@ function openOhmLab() {
     charts.currentResistance.update();
   
     // Update grafik antara Voltase dan Arus
-    const voltageRange = Array.from({ length: 10 }, (_, i) => 0 + i * 1000); // Menambahkan variasi voltase
+    const voltageRange = Array.from({ length: 10 }, (_, i) => 0 + i * 100); // Menambahkan variasi voltase
     charts.voltCurrent.data.labels = voltageRange;
     charts.voltCurrent.data.datasets[0].data = voltageRange.map(
       (v) => (v / resistance) * 1000 // Menghitung arus berdasarkan voltase dan hambatan tetap
