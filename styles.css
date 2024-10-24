@@ -189,12 +189,13 @@ body, html {
   }
   
   canvas {
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
     border: 1px solid #ccc;
   }
   
   #graphs {
+    max-width: 80%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
