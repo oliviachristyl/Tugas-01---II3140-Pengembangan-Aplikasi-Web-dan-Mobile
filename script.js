@@ -11,13 +11,13 @@ function openOhmLab() {
     const voltage = parseFloat(document.getElementById("voltage").value);
     const resistance = parseFloat(document.getElementById("resistance").value);
 
-    if (isNaN(voltage) || isNaN(resistance) || resistance <= 0 || voltage <= 0) {
+    if (isNaN(voltage) || isNaN(resistance) || resistance <= 0 || voltage < 0 || voltage > 1000 || resistance > 1000) {
         alert("Masukkan nilai yang valid untuk voltase dan hambatan.");
         return;
     }
 
     // Hitung arus (I = V / R)
-    const current = (voltage / resistance) // dalam mA
+    const current = (voltage / resistance) // dalam A
     document.getElementById("current").textContent = current.toFixed(2);
 
     // Update grafik setelah arus dihitung
@@ -26,7 +26,7 @@ function openOhmLab() {
   
   function updateCharts(voltage, resistance, current) {
     // Update grafik antara Arus dan Hambatan
-    const resistanceRange = Array.from({ length: 10 }, (_, i) => 10 + i * 100); // Rentang hambatan dimulai dari 10Ω, bertambah 10
+    const resistanceRange = Array.from({ length: 10 }, (_, i) => 1 + i * 100); // Rentang hambatan dimulai dari 10Ω, bertambah 10
     charts.currentResistance.data.labels = resistanceRange;
     charts.currentResistance.data.datasets[0].data = resistanceRange.map(
       (r) => (voltage / r) // Menghitung arus untuk tiap hambatan
