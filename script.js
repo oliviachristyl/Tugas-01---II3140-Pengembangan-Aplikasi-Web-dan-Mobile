@@ -1,3 +1,4 @@
+//18222036 - Olivia Christy Lismanto
 function openOhmLab() {
     document.querySelector(".topic-section").classList.add("hidden");
     document.getElementById("ohm-lab").classList.remove("hidden");
@@ -26,7 +27,7 @@ function openOhmLab() {
   
   function updateCharts(voltage, resistance, current) {
     // Update grafik antara Arus dan Hambatan
-    const resistanceRange = Array.from({ length: 10 }, (_, i) => 1 + i * 100); // Rentang hambatan dimulai dari 10Ω, bertambah 10
+    const resistanceRange = Array.from({ length: 10 }, (_, i) => 1 + i * 100); 
     charts.currentResistance.data.labels = resistanceRange;
     charts.currentResistance.data.datasets[0].data = resistanceRange.map(
       (r) => (voltage / r) // Menghitung arus untuk tiap hambatan

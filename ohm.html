@@ -1,25 +1,30 @@
+<!-- 18222036 - Olivia Christy Lismanto -->
 <!DOCTYPE html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      Percobaan Hukum Ohm - Laboratorium Virtual Fisika Dasar TPB ITB
+      Percobaan Hukum Ohm - Simulasi Fisika Dasar Virtual bersama Olivia
     </title>
     <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <header onclick="window.location.href='index.html'">
-      <h1>Laboratorium Virtual Fisika Dasar TPB ITB</h1>
+      <h1>Simulasi Fisika Dasar Virtual bersama Olivia</h1>
     </header>
 
     <section id="ohm-lab" class="lab-section">
-      <h2>Percobaan Hukum Ohm</h2>
+      <h2>Rangkaian DC - Hukum Ohm</h2>
       <p>
+        Dalam dunia elektronika, salah satu fondasi dasar yang sering kita temui adalah rangkaian arus searah atau rangkaian DC (Direct Current). 
+        Rangkaian ini merupakan jenis rangkaian di mana arus listrik mengalir searah melalui konduktor. 
+        Rangkaian DC banyak digunakan dalam perangkat sehari-hari seperti baterai, lampu senter, dan berbagai alat elektronik. 
+        Untuk memahami bagaimana komponen dalam rangkaian DC berinteraksi satu sama lain, salah satu konsep penting yang harus dipahami adalah Hukum Ohm.
         Hukum Ohm menyatakan bahwa arus listrik yang mengalir melalui penghantar
         antara dua titik sebanding dengan voltase di antara kedua titik
-        tersebut. Secara matematis, dinyatakan sebagai V = I x R, di mana V
+        tersebut. Secara matematis, dinyatakan sebagai I = V/R, di mana V
         adalah voltase, I adalah arus, dan R adalah hambatan.
       </p>
       <p>Masukkan nilai voltase dan hambatan untuk menghitung arus listrik.</p>
@@ -95,10 +100,18 @@
       <div id="result">
         <p>Arus Listrik (I): <span id="current">0</span> A</p>
       </div>
+      <p>Grafik di bawah ini menunjukkan hubungan antara masing-masing komponen Hukum Ohm berdasarkan masukan input yang telah diisi untuk menghitung arus listrik.</p>
+      <br/>
+      <h3>Grafik Hukum Ohm</h3>
+      <br/>
       <div id="graphs">
-        <h3>Grafik Hukum Ohm</h3>
+        <p>Grafik Arus - Hambatan</p>
         <canvas id="currentResistanceGraph" width="400" height="200"></canvas>
+        <br />
+        <p>Grafik Arus - Voltase</p>
         <canvas id="voltCurrentGraph" width="400" height="200"></canvas>
+        <br />
+        <p>Grafik Hambatan - Voltase</p>
         <canvas id="voltResistanceGraph" width="400" height="200"></canvas>
       </div>
       <script>
@@ -221,7 +234,7 @@
       <p>
         Ini berarti bahwa jika tegangan yang diberikan pada sebuah rangkaian meningkat sementara hambatannya tetap, arus yang mengalir akan bertambah. Sebaliknya, jika hambatan meningkat sementara tegangannya tetap, arus yang mengalir akan berkurang. Jadi, bisa disimpulkan bahwa arus berbanding lurus dengan tegangan, namun arus berbanding terbalik dengan hambatan. Hukum ini membantu menjelaskan bagaimana perubahan tegangan atau hambatan memengaruhi besarnya arus dalam suatu rangkaian.
       </p>
-      <p>Coba simak video di bawah ini untuk lebih memahami materi.</p> <!-- Penjelasan Sebelum Video -->
+      <p>Coba simak video di bawah ini untuk lebih memahami materi</p> <!-- Penjelasan Sebelum Video Pembelajaran-->
       <div class="video-container">
         <h3>Video Pembelajaran</h3>
         <iframe
@@ -235,11 +248,20 @@
           allowfullscreen
         ></iframe>
         <p><em>Source: Budi Adiperdana</em></p> 
+        <br />
+        <p>Dalam rangka mendalami konsep yang diajarkan dalam modul ini, penting bagi kita untuk memahami mekanisme dan metode praktikum atau percobaan yang dapat dilakukan. 
+          Pemahaman ini akan membantu kita menerapkan teori yang telah dipelajari secara lebih efektif. 
+          Untuk memahami lebih dalam mekanisme dan metode praktikum pada modul ini, silakan tonton kedua video berikut ini.</p> <!-- Penjelasan Sebelum Video Praktikum-->
+        <br />
+        <h3>Video Praktikum</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/c44Apr07FuQ?si=UMuOHKZOBw0xwXR_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p><em>Source: Laboratorium Fisika Dasar ITB</em></p> 
       </div>
       <br />
       <button onclick="window.location.href='index.html'" style="background-color: #00008B; color: white; padding: 10px 20px; border: none; cursor: pointer;">
         Kembali
       </button>
+      <br />
     </section>
     <footer>
       © 2024 Laboratorium Virtual Fisika Dasar TPB ITB. All Rights Reserved.
